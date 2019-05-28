@@ -1,0 +1,58 @@
+<All_Emergencies>
+	<Type>
+		<Name>Bites and stings</Name>
+		<Descriptors>["bit", "bitten", "bite", "sting", "stung", "stinger", "insect", "bug", "spider", "snake"]</Descriptors>
+		<Question> Do you know what kind of bite?</Question>
+		<Subtype>
+			<Name>Black Widow</Name>
+			<Descriptors>
+				["spider", "black", "red", "hourglass"]
+			</Descriptors>
+			<Symptoms>
+				There will be a dull ache where the bite is within 30 minutes. Then Sever painful muscle spasms begin in the shoulders, back, chest, and abdomen will begin in 10 to 40 minutes. The pain will peak in around 1-3 hours and then the pain will persist for 12 to 48 hours after that. The abdomen will become rigid and board like. In severe cases dizziness, nausea, vomiting, and respiratory distress will occur.
+			</Symptoms>
+			<Treatment>["Keep the victim calm and limit their physical activity", "Cleanse the bite site gently using normal saline (or cleanest water available) and mild or strong soap solution", "apply a cold pack to the bite", "Treat the casualty for anaphylactic shock if necessary", "Get medical assistance"]</Treatment>
+		</Subtype>
+		<Subtype>
+			<Name>Brown recluse</Name>
+			<Descriptors>
+				["spider", "brown", "blue", "white", "yellow", "bluish", "bulls", "eye", "halo", "red", "violin"]
+			</Descriptors>
+			<Symptoms>
+				The victim will not notice the bite at first because it is typically painless. Severl hours after the bite it will become bluish surrounded by a white periphery. A red halo pattern will appear sometime later. Within 7 to 10 days the bite will become a large ulcer.
+			</Symptoms>
+			<Treatment>
+			["Left empty for now"]
+			</Treatment>
+		</Subtype>
+		<Subtype>
+			<Name>Scorpion</Name>
+			<Descriptors>
+				["scorpion", "sting"]
+			</Descriptors>
+			<Symptoms>
+				Sharp pain and a feeling of pins and needles at the bite site, severe muscle contractions, drooling, poor circulation, hypertension, cardiac failure, incontincence, and seizures
+			</Symptoms>
+			<Treatment>
+			["left empty for now"]
+			</Treatment>
+		</Subtype>
+		<Subtype>
+			<Name>Bee, Wasp, and Hornet</Name>
+			<Descriptors>
+				["bee", "wasp", "hornet", "yellow jacket", "sting"]
+			</Descriptors>
+			<Symptoms>
+				If the reaction is severe then the victim will experience itching and burning, hives, chest tightness and coughing, swelling around the lips and tongue, narrowing of the airways in the lungs, wheezin, shortness of breath, abdominal cramps, anxiety. If the reaction is not severe then just pain at the sting site, redness and swelling, itching, anxiety.
+			</Symptoms>
+			<Treatment>
+			["left empty for now"]
+			</Treatment>
+		</Subtype>
+
+	</Type>
+	<Type>
+		<Name>something else</Name>
+	</Type>
+</All_Emergencies>
+		
