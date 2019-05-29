@@ -28,7 +28,6 @@ def voice():
 
 
 def diagnose(tokens, root):
-    print(tokens)
     cntTypes = {}
     for types in root.iter('Type'):
         cntTypes[types] = 0
@@ -49,24 +48,19 @@ def diagnose(tokens, root):
     if maxScore == 0:
         return 0
     else:
-        firstLoop = True
         while True:
-            check = maxScoreKey.find('Subtype')
-            if check == None:
+            subTypes = maxScoreKey.findall('Subtype')
+            if len(subTypes) == 0:
                 return maxScoreKey
             else: 
                 cntSTypes = {}
-                for subTypes in maxScoreKey.iter('Subtype'):
-                    cntSTypes[subTypes] = 0
+                for subType in subTypes:
+                    cntSTypes[subType] = 0
                     for t in tokens:
-                        descrip = ast.literal_eval(subTypes[1].text)
+                        descrip = ast.literal_eval(subType[1].text)
                         for td in descrip:
                             if t == td:
-                                cntSTypes[subTypes] += 1
-                
-                if not firstLoop:
-                    del cntSTypes[maxScoreKey]
-
+                                cntSTypes[subType] += 1
                 maxScoreSub = 0
                 maxScoreKeySub = ""
                 for key in cntSTypes:
@@ -80,7 +74,6 @@ def diagnose(tokens, root):
                     return maxScoreKey
                 else:
                     maxScoreKey = maxScoreKeySub
-                    firstLoop = False
 
 
 
@@ -116,7 +109,11 @@ def main():
     # engine.runAndWait()
     tree = ET.parse('ArmyFirstAidOrganized.xml')
     query = input("\n\nWhat's your emergency?\n\n")
-    emergencyType = diagnose(query, tree)
+    root = tree.getroot()
+    tokens = nltk.word_tokenize(query.lower())
+    stop_words = set(stopwords.words('english'))
+    tokens = [token for token in tokens if token not in stop_words]
+    emergencyType = diagnose(tokens, root)
     stepThroughInstructions(emergencyType)
 
 
