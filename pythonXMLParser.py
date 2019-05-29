@@ -46,7 +46,6 @@ def diagnose(tokens, root):
             maxScore = cntTypes[key]
         else:
             continue
-    maxScoreKeyString = maxScoreKey[0].text
     if maxScore == 0:
         return 0
     else:
@@ -54,9 +53,7 @@ def diagnose(tokens, root):
         while True:
             check = maxScoreKey.find('Subtype')
             if check == None:
-                print("here")
                 return maxScoreKey
-                maxScoreKeyString = maxScoreKey[0].text
             else: 
                 cntSTypes = {}
                 for subTypes in maxScoreKey.iter('Subtype'):
@@ -83,7 +80,6 @@ def diagnose(tokens, root):
                     return maxScoreKey
                 else:
                     maxScoreKey = maxScoreKeySub
-                    maxScoreKeyString = maxScoreKey[0].text
                     firstLoop = False
 
 
