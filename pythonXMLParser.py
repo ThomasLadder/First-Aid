@@ -35,8 +35,10 @@ def diagnose(tokens, root):
     maxScoreKey = root
     while True:
         subTypes = maxScoreKey.findall('Type')
+        #if there are no longer any more specific subtypes
         if len(subTypes) == 0:
             return maxScoreKey
+        #if they bet more specific
         else: 
             score, matchType = selectSubType(subTypes, tokens)
             
@@ -48,6 +50,7 @@ def diagnose(tokens, root):
 #takes in the subTypes you're currenlty at the the tokens from speech and returns the closest matching subtype and it's score
 def selectSubType(subTypes, tokens):
     cntSTypes = {}
+    #goes through each of the subtype's descriptors and sees if the statement can match to any of those
     for subType in subTypes:
         cntSTypes[subType] = 0
         for t in tokens:
@@ -57,6 +60,7 @@ def selectSubType(subTypes, tokens):
                     cntSTypes[subType] += 1
     score = 0
     matchType = ""
+    #sets matchtype to the highest scoring subtype and score to whatever the score for that was
     for key in cntSTypes:
         if cntSTypes[key] > score:
             matchType = key
@@ -69,17 +73,20 @@ def selectSubType(subTypes, tokens):
 #called when the user hasn't given enough initial information to get to a specific diagnoses
 #returns the diagnoses at the next level of specificity
 def diagnoseOptions(type, tokens):
+    #prints out whatever the question element is
     q = type.find('Question')
     print(q.text)
     print("\nHere are the options:\n")
     counter = 0
     subTypes = type.findall('Type')
+    #prints all of the options
     for st in subTypes:
         print(str(counter) + ". " + st[0].text + "\n")
         counter += 1
     while True:
         selection = input("which option is it?")
         tokens = removeStopWords(selection)
+        #gets the score and type from the given statement and checks if can reach a conclusion from that
         score, matchType = selectSubType(subTypes, tokens)
         if score == 0:
             print("Could you please repeat that? \n")
