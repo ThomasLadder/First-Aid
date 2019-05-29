@@ -7,6 +7,8 @@ from nltk.corpus import stopwords
 import xml.etree.ElementTree as ET
 import ast
 
+
+#Call this function whenever you're using the voice functionality
 def voice():
     # obtain audio from the microphone
     r = sr.Recognizer()
@@ -26,7 +28,9 @@ def voice():
 
 
 
-
+#The initial diagonse
+#iterates through until lands on the most specific option
+#returns the xml element
 def diagnose(tokens, root):
     maxScoreKey = root
     while True:
@@ -41,8 +45,7 @@ def diagnose(tokens, root):
             else:
                 maxScoreKey = matchType
 
-
-
+#takes in the subTypes you're currenlty at the the tokens from speech and returns the closest matching subtype and it's score
 def selectSubType(subTypes, tokens):
     cntSTypes = {}
     for subType in subTypes:
@@ -63,7 +66,8 @@ def selectSubType(subTypes, tokens):
 
     return score, matchType
 
-
+#called when the user hasn't given enough initial information to get to a specific diagnoses
+#returns the diagnoses at the next level of specificity
 def diagnoseOptions(type, tokens):
     q = type.find('Question')
     print(q.text)
@@ -87,7 +91,7 @@ def diagnoseOptions(type, tokens):
 
 
 
-
+#steps through the instructions
 def stepThroughInstructions(emergencyType):
     # engine = talk.init()
     treatment = emergencyType.findall('Treatment')
@@ -109,6 +113,7 @@ def stepThroughInstructions(emergencyType):
             print("none of the cases")
             continue
 
+#removes irrelevant words and returns a list of the token words
 def removeStopWords(query):
     tokens = nltk.word_tokenize(query.lower())
     stop_words = set(stopwords.words('english'))
