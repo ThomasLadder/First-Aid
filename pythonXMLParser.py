@@ -28,52 +28,60 @@ def voice():
 
 
 def diagnose(tokens, root):
-    cntTypes = {}
-    for types in root.iter('Type'):
-        cntTypes[types] = 0
+    maxScoreKey = root
+    while True:
+        subTypes = maxScoreKey.findall('Type')
+        if len(subTypes) == 0:
+            return maxScoreKey
+        else: 
+            score, matchType = selectSubType(subTypes, tokens)
+            
+            if score == 0:
+                maxScoreKey = diagnoseOptions(maxScoreKey, tokens)
+            else:
+                maxScoreKey = matchType
+
+
+
+def selectSubType(subTypes, tokens):
+    cntSTypes = {}
+    for subType in subTypes:
+        cntSTypes[subType] = 0
         for t in tokens:
-            descrip = ast.literal_eval(types[1].text)
+            descrip = ast.literal_eval(subType[1].text)
             for td in descrip:
                 if t == td:
-                    cntTypes[types] += 1
-
-    maxScore = 0
-    maxScoreKey = ""
-    for key in cntTypes:
-        if cntTypes[key] > maxScore:
-            maxScoreKey = key
-            maxScore = cntTypes[key]
+                    cntSTypes[subType] += 1
+    score = 0
+    matchType = ""
+    for key in cntSTypes:
+        if cntSTypes[key] > score:
+            matchType = key
+            score = cntSTypes[key]
         else:
             continue
-    if maxScore == 0:
-        return 0
-    else:
-        while True:
-            subTypes = maxScoreKey.findall('Subtype')
-            if len(subTypes) == 0:
-                return maxScoreKey
-            else: 
-                cntSTypes = {}
-                for subType in subTypes:
-                    cntSTypes[subType] = 0
-                    for t in tokens:
-                        descrip = ast.literal_eval(subType[1].text)
-                        for td in descrip:
-                            if t == td:
-                                cntSTypes[subType] += 1
-                maxScoreSub = 0
-                maxScoreKeySub = ""
-                for key in cntSTypes:
-                    if cntSTypes[key] > maxScoreSub:
-                        maxScoreKeySub = key
-                        maxScoreSub = cntSTypes[key]
-                    else:
-                        continue
-                
-                if maxScoreSub == 0:
-                    return maxScoreKey
-                else:
-                    maxScoreKey = maxScoreKeySub
+
+    return score, matchType
+
+
+def diagnoseOptions(type, tokens):
+    q = type.find('Question')
+    print(q.text)
+    print("\nHere are the options:\n")
+    counter = 0
+    subTypes = type.findall('Type')
+    for st in subTypes:
+        print(str(counter) + ". " + st[0].text + "\n")
+        counter += 1
+    while True:
+        selection = input("which option is it?")
+        tokens = removeStopWords(selection)
+        score, matchType = selectSubType(subTypes, tokens)
+        if score == 0:
+            print("Could you please repeat that? \n")
+            continue
+        else:
+            return matchType
 
 
 
@@ -86,6 +94,7 @@ def stepThroughInstructions(emergencyType):
     treatmentList = ast.literal_eval(treatment[0].text)
     counter = 0
     while counter < len(treatmentList): 
+        print(treatmentList[counter])
         # engine.say(treatmentList[counter])
         # engine.runAndWait()
         # response = voice()
@@ -100,6 +109,12 @@ def stepThroughInstructions(emergencyType):
             print("none of the cases")
             continue
 
+def removeStopWords(query):
+    tokens = nltk.word_tokenize(query.lower())
+    stop_words = set(stopwords.words('english'))
+    tokens = [token for token in tokens if token not in stop_words]
+    return tokens
+    
 
 
 
@@ -110,11 +125,10 @@ def main():
     tree = ET.parse('ArmyFirstAidOrganized.xml')
     query = input("\n\nWhat's your emergency?\n\n")
     root = tree.getroot()
-    tokens = nltk.word_tokenize(query.lower())
-    stop_words = set(stopwords.words('english'))
-    tokens = [token for token in tokens if token not in stop_words]
+    tokens = removeStopWords(query)
     emergencyType = diagnose(tokens, root)
-    stepThroughInstructions(emergencyType)
+    print(emergencyType[0].text)
+    # stepThroughInstructions(emergencyType)
 
 
 
