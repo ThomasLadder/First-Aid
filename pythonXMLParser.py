@@ -94,10 +94,6 @@ def diagnoseOptions(type, tokens):
         else:
             return matchType
 
-
-
-
-
 #steps through the instructions
 def stepThroughInstructions(emergencyType):
     # engine = talk.init()
@@ -126,9 +122,6 @@ def removeStopWords(query):
     stop_words = set(stopwords.words('english'))
     tokens = [token for token in tokens if token not in stop_words]
     return tokens
-    
-
-
 
 def main():
     # engine = talk.init()
@@ -141,8 +134,6 @@ def main():
     emergencyType = diagnose(tokens, root)
     print(emergencyType[0].text)
     # stepThroughInstructions(emergencyType)
-
-
 
 if __name__ == '__main__':
     main()
