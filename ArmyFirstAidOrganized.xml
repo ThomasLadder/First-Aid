@@ -4,7 +4,7 @@
 		<Descriptors>["bit", "bitten", "bite", "sting", "stung", "stinger", "insect", "bug", "spider", "snake"]</Descriptors>
 		<Question> Do you know what bit you?</Question>
 		<Type>
-			<Name> Spiders</Name>
+			<Name>Spiders</Name>
 			<Descriptors>["spider", "spiders", "creepy crawler"]</Descriptors>
 			<Question>Do you know what kind of spider bit you?</Question>
 			<Type>
