@@ -84,7 +84,12 @@ def diagnoseOptions(type, tokens):
         print(str(counter) + ". " + st[0].text + "\n")
         counter += 1
     while True:
-        selection = input("which option is it?")
+        selection = input("\nwhich option is it?")
+        isAQuestion = isQuestion(selection)
+        if isAQuestion:
+            questionResponse(selection, subTypes)
+            continue
+        print(isAQuestion)
         tokens = removeStopWords(selection)
         #gets the score and type from the given statement and checks if can reach a conclusion from that
         score, matchType = selectSubType(subTypes, tokens)
@@ -93,6 +98,51 @@ def diagnoseOptions(type, tokens):
             continue
         else:
             return matchType
+
+def questionResponse(query, subTypes):
+    tokens = nltk.word_tokenize(query.lower())
+    plural = False
+    if "these" in tokens or ("those" in tokens):
+        plural = True
+
+    if "where" in tokens:
+        if plural:
+            for st in subTypes:
+                whereQuestions("where is the " + st[0].text)
+        else:
+            matchType = selectSubType(subTypes, tokens)[1]
+            whereQuestions("where is the " + matchType[0].text)
+            
+    elif "what" in tokens:
+        if plural:
+            for st in subTypes:
+                whatQuestions("what is a " + st[0].text)
+        else:
+            matchType = selectSubType(subTypes, tokens)[1]
+            whatQuestions("what is a " + matchType[0].text)
+    else:
+        return 0
+        
+
+def whereQuestions(query):
+    print(query)
+
+def whatQuestions(query):
+    print(query)
+
+def isQuestion(query):
+    questionWords = ["what", "where", "how"]
+    tokens = nltk.word_tokenize(query.lower())
+    for token in tokens:
+        if token in questionWords:
+            return True
+        else:
+            continue
+    
+    return False
+
+
+
 
 #steps through the instructions
 def stepThroughInstructions(emergencyType):
@@ -133,7 +183,7 @@ def main():
     tokens = removeStopWords(query)
     emergencyType = diagnose(tokens, root)
     print(emergencyType[0].text)
-    # stepThroughInstructions(emergencyType)
+    stepThroughInstructions(emergencyType)
 
 if __name__ == '__main__':
     main()
