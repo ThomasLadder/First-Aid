@@ -1,0 +1,152 @@
+<All_Emergencies>
+	<Type>
+		<Name>Bites and stings</Name>
+		<Descriptors>["bit", "bitten", "bite", "sting", "stung", "stinger", "insect", "bug", "spider", "snake"]</Descriptors>
+		<Question> Do you know what bit you?</Question>
+		<Type>
+			<Name> Spiders</Name>
+			<Descriptors>["spider", "spiders", "creepy crawler"]</Descriptors>
+			<Question>Do you know what kind of spider bit you?</Question>
+			<Type>
+				<Name>Black Widow Spider</Name>
+				<Descriptors>["black", "red", "hourglass"]</Descriptors>
+				<Symptoms>
+					There will be a dull ache where the bite is within 30 minutes. Then Sever painful muscle spasms begin in the shoulders, back, chest, and abdomen will begin in 10 to 40 minutes. The pain will peak in around 1-3 hours and then the pain will persist for 12 to 48 hours after that. The abdomen will become rigid and board like. In severe cases dizziness, nausea, vomiting, and respiratory distress will occur.
+				</Symptoms>
+				<Treatment>["Keep the victim calm and limit their physical activity and movement to prevent distribution of the poison to other parts of the body", "Cleanse the bite site gently using normal saline (or cleanest water available) and mild or strong soap solution", "apply a cold pack to the bite", "Treat the casualty for anaphylactic shock if necessary", "Get medical assistance"]</Treatment>
+			</Type>
+			<Type>
+				<Name>Brown recluse Spider</Name>
+				<Descriptors>["brown", "blue", "white", "yellow", "bluish", "bulls", "eye", "halo", "red", "violin", "recluse"]</Descriptors>
+				<Symptoms>
+					The victim will not notice the bite at first because it is typically painless. Several hours after the bite it will become bluish surrounded by a white periphery. A red halo pattern will appear sometime later. Within 7 to 10 days the bite will become a large ulcer.
+				</Symptoms>
+				<Treatment>["Keep the victim calm and limit their physical activity and movement to prevent distribution of the poison to other parts of the body", "Cleanse the bite site gently using normal saline (or cleanest water available) and mild or strong soap solution", "apply a cold pack to the bite", "Treat the casualty for anaphylactic shock if necessary", "Get medical assistance"]</Treatment>
+			</Type>
+		</Type>
+		<Type>
+			<Name>Scorpion</Name>
+			<Descriptors>["scorpion", "sting"]</Descriptors>
+			<Symptoms>
+				Sharp pain and a feeling of pins and needles at the bite site, severe muscle contractions, drooling, poor circulation, hypertension, cardiac failure, incontincence, and seizures
+			</Symptoms>
+			<Treatment>["Keep the victim calm and limit their physical activity and movement to prevent distribution of the poison to other parts of the body", "Cleanse the bite site gently using normal saline (or cleanest water available) and mild or strong soap solution", "apply a cold pack to the bite", "Treat the casualty for anaphylactic shock if necessary", "Get medical assistance"]</Treatment>
+		</Type>
+		<Type>
+			<Name>Bee, Wasp, and Hornet</Name>
+			<Descriptors>["bee", "wasp", "hornet", "yellow jacket", "sting"]</Descriptors>
+			<Symptoms>
+				If the reaction is severe then the victim will experience itching and burning, hives, chest tightness and coughing, swelling around the lips and tongue, narrowing of the airways in the lungs, wheezin, shortness of breath, abdominal cramps, anxiety. If the reaction is not severe then just pain at the sting site, redness and swelling, itching, anxiety.
+			</Symptoms>
+			<Treatment>["Keep the victim calm and limit their physical activity and movement to prevent distribution of the poison to other parts of the body", "Cleanse the bite site gently using normal saline (or cleanest water available) and mild or strong soap solution", "apply a cold pack to the bite", "Treat the casualty for anaphylactic shock if necessary", "Get medical assistance"]</Treatment>
+		</Type>
+	</Type>
+
+	<Type>
+		<Name>Heat Illness</Name>
+		<Descriptors>["heat", "hot", "overheated", "burning", "heatstroke", "heat stroke", "heat exhaustion", "sweating", "temperature"]</Descriptors>
+		<Question>Do you know if it is heat illness or heat exhaustion</Question>
+		<Type>
+			<Name>Heat Exhaustion</Name>
+			<Descriptors>["exhaustion", "exhausted", "heat exhaustion", "cramps"]</Descriptors>
+			<Symptoms>
+				Heat exhaustion is often preceded by heat cramps, muscle cramps of the arms, legs, or abdomen. Other signs include nausea, weakness, dizziness, headache, loss of appetite, clumsy/unsteady walk, profuse sweating and pale (or gray), moist cool skin, and normal to slightly elevated body temperature.
+			</Symptoms>
+			<Treatment>["Rest patient in shade", "Loosen clothes and remove head gear, if any", "Have patient drink 2 quarts of water over 1 hour", "Seek medical aid if no improvement in 30 minutes or condition worsens"]</Treatment>
+		</Type>
+		<Type>
+			<Name>Heat stroke</Name>
+			<Descriptors>["stroke", "heat stroke", "vomit", "convulsions"]</Descriptors>
+			<Symptoms>
+				Symptoms include hot dry skin, headache, in the early progression of heatstroke the skin may be moist or wet, convulsions and chills, dizziness, nausea, weakness, vomiting, pulse and respirations are weak and rapid, confusion, mumbling (do mental check questions to see if brain is working correctly), combative, and passing out.
+			</Symptoms>
+			<Treatment>["Immediately begin cooling the patient off by:", "Cool the patient by any means available, even before removing clothes", "Strip", "Rapidly cool by immersing patient in cold water", "Rapidly cool with ice sheets by covering all but the face with ice sheets and ensuring the iced sheet is soaked prior to applying", "Place ice packs in groin, armpits, and around the neck", "Fan entire body", "Stop cooling if patient starts shivering", "Go to nearest medical treatment facility as soon as possible and continue cooling during transport. Note that the same person should observe the patient during cooling and transport in order to spot symptom changes.", "Give nothing by mouth"]</Treatment>
+		</Type>
+	</Type>
+
+	<Type>
+		<Name>Concussion</Name>
+		<Descriptors>["headache", "bruise", "dizzy", "head", "bump", "concussion"]</Descriptors>
+		<Question>Is it a serious concussion or mild concussion? If it is a serious concussion, the patient will not be alert/not respond to stimuli.</Question>
+		<Type>
+			<Name>Serious Concussion</Name>
+			<Descriptors>["serious", "serious concussion", "unresponsive", "amnesia", "contusion", "unconscious"]</Descriptors>
+			<Symptoms>
+				Not alert/ not responding to stimuli.
+			</Symptoms>
+			<Treatment>["Place your hands on each side of the casualty’s head, thereby, maintaining the position of the head in line with the body.", "Apply ice to reduce the swelling", "Dress any open wounds", "Get medical attention" ]</Treatment>
+		</Type>
+		<Type>
+			<Name>Mild Concussion</Name>
+			<Descriptors>["mild", "mild concussion", "headache", "dizzy", "sleepy", "bruise"]</Descriptors>
+			<Symptoms>
+				Temporary unconsciousness followed by confusion. Temporary, usually short term, loss of some or all brain functions. The person has a headache or is seeing double.
+			</Symptoms>
+			<Treatment>["Apply ice to reduce the swelling", "Take over-the-counter pain meds", "Keep tabs on the patient’s cognitive function, by asking questions such as: What's your name? How old are you? How many fingers am I holding up?", "Get medical attention if the patient is not able to easily answer these questions"]</Treatment>
+		</Type>
+	</Type>
+	
+	<Type>
+		<Name>Burns</Name>
+		<Descriptors>["burn", "burned", "fire", "flame", "degree"]</Descriptors>
+		<Question>Do you know what type of burn it is?</Question>
+		<Type>
+			<Name>Thermal Burn</Name>
+			<Descriptors>["thermal", "scald", "flame", "radiation"]</Descriptors>
+			<Symptoms> 
+				This type of burn occurs when the skin comes in contact with something hot. Typically, this type of burn occurs when the skin comes in contact with flames or fire, hot molten liquid or steam (referred to as a scald), or hot objects, such as cooking pans, irons, or heated appliances.
+			</Symptoms>
+			<Treatment>["Remove the patient from the source from the source of the burn", "If the patient's clothing is on fire, cover the patient with any large piece of nonsynthetic material and roll him on the ground to put out the flames", "Uncover the burn by cutting clothing from the burned area, gently lifting away the clothing covering the burned area, and removing any jewelry on the burned area", "Apply dry, sterile dressing or cloth (white-side down) directly over the wound. The dressing should be applied lightly over the burn, but firmly enough to prevent it from slipping", "Watch the patient for signs of life-threatening conditions, check for other injuries, and treat for shock", "Get medical assistance"]</Treatment>
+		</Type>
+		<Type>
+			<Name>Chemical Burn</Name>
+			<Descriptors>["chemical", "acid", "bleach", "substance"]</Descriptors>
+			<Symptoms>
+				This type of burn occurs when the skin or eyes come in contact with a harsh irritant, such as acid. Substances that cause this type of burn include Chlorine, Ammonia, Bleach, Battery acid, and strong or harsh cleaners.
+			</Symptoms>
+			<Treatment>["Remove liquid chemicals from the burned patient by flushing with as much water as possible", "Remove dry chemicals by carefully brushing them off with a clean, dry cloth and apply large amounts of water to flush the area", "Uncover the burn by cutting clothing from the burned area, gently lifting away the clothing covering the burned area, and removing any jewelry on the burned area", "Apply dry, sterile dressing or cloth (white-side down) directly over the wound. The dressing should be applied lightly over the burn, but firmly enough to prevent it from slipping", "Watch the patient for signs of life-threatening conditions, check for other injuries, and treat for shock", "Get medical assistance"]</Treatment>
+		</Type>
+		<Type>
+			<Name>Electric Burn</Name>
+			<Descriptors>["electric", "current", "jolt", "electricity"]</Descriptors>
+			<Symptoms>
+				This type of burn occurs when the body comes in contact with an electric current. The most common cause of an electrical burn is coming in contact with an extension cord where the insulation material has worn away. Some other causes include touching electrically live objects, short-circuiting, inserting fingers in electrical sockets, lightning strikes, and falling into electrified water. High voltage electrical burns from an electrical source or lightning may cause temporary unconsciousness, difficulties breathing, or difficulties with the heart (irregular heartbeat).
+			</Symptoms>
+			<Treatment>["If the patient is in contact with an electrical source, turn the electricity off if the switch is nearby. If the electricity cannot be turned off, use nonconductive material (rope, clothing, or dry wood) to drag the patient away from the source", "Uncover the burn by cutting clothing from the burned area, gently lifting away the clothing covering the burned area, and removing any jewelry on the burned area", "Apply dry, sterile dressing or cloth (white-side down) directly over the wound. The dressing should be applied lightly over the burn, but firmly enough to prevent it from slipping", "Watch the patient for signs of life-threatening conditions, check for other injuries, and treat for shock", "Get medical assistance"]</Treatment>
+		</Type>
+		<Type>
+			<Name>Laser Burn</Name>
+			<Descriptors>["laser", "beam"]</Descriptors>
+			<Symptoms>
+				This type of burn occurs when the body comes in contact with a laser beam. The patient might experience severe swelling at the site of the burn and skin redness or discoloration.
+			</Symptoms>
+			<Treatment>["If possible, wear appropriate laser eye protection", "Move the patient away from the source while avoiding eye contact with the beam source", "Uncover the burn by cutting clothing from the burned area, gently lifting away the clothing covering the burned area, and removing any jewelry on the burned area", "Apply dry, sterile dressing or cloth (white-side down) directly over the wound. The dressing should be applied lightly over the burn, but firmly enough to prevent it from slipping", "Watch the patient for signs of life-threatening conditions, check for other injuries, and treat for shock", "Get medical assistance"]</Treatment>
+		</Type>
+	</Type>
+
+	<Type>
+		<Name>Airway Obstructions</Name>
+		<Descriptors>["airway", "blocked", "block", "breath", "air", "throat", "choke", "choking"]</Descriptors>
+		<Question> Only peform compressions/thrusts if choking is severe. If you are pregnant or have an abdominal wound, say chest compressions for directions. If not, say abdominal thrusts.  </Question>
+		<Type>
+			<Name>Abdominal thrusts</Name>
+			<Descriptors>["abdominal", "thrusts", "abdominal thrusts"]</Descriptors>
+			<Symptoms> 
+				Regular airway obstruction steps.
+			</Symptoms>
+			<Treatment>["Stand behind the patient", "Wrap your arms around the patient's waist", "Make a fist with one hand", "Place the thumb side of the fist against the abdominal slightly above the naval and well below the tip of the breastbone", "Grasp the fist with the other hand", "Give kick backward and upward thrusts"]</Treatment>
+		</Type>
+
+		<Type>
+			<Name>Chest Compressions</Name>
+			<Descriptors>["chest", "compressions", "chest compressions"]</Descriptors>
+			<Symptoms> 
+				Airway obstruction steps for when you are pregnant or have an abdominal wound.
+			</Symptoms>
+			<Treatment>["Stand behind the patient", "Wrap your arms under the patient's armpits and around the chest", "Make a fist with one hand", "Give backwards thrusts"]</Treatment>
+		</Type>
+
+	</Type>
+
+</All_Emergencies>
+		
