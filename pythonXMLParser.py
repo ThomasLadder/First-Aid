@@ -4,8 +4,11 @@ import speech_recognition as sr
 import pyttsx3 as talk
 import nltk
 from nltk.corpus import stopwords
+from nltk.tag import pos_tag
 import xml.etree.ElementTree as ET
 import ast
+from find_youtube_video import find_video
+from GoogleSearchFunctions import whatQuestions, whereQuestions
 
 
 #Call this function whenever you're using the voice functionality
@@ -84,22 +87,30 @@ def diagnoseOptions(type, tokens):
         print(str(counter) + ". " + st[0].text + "\n")
         counter += 1
     while True:
-        selection = input("\nwhich option is it?")
+        selection = input("\nWhich option is it?")
         isAQuestion = isQuestion(selection)
-        if isAQuestion:
-            questionResponse(selection, subTypes)
-            continue
-        print(isAQuestion)
+        while isAQuestion:
+            result = diagnoseQuestionResponse(selection, subTypes)
+            if result == 1:
+                selection = input("\nWhich option is it?")
+                if isQuestion(selection):
+                    continue
+                else:
+                    isAQuestion = False
+            else:
+                selection = input("\nCould you please repeat that? We couldn't understand the question.")
+                continue
+
         tokens = removeStopWords(selection)
         #gets the score and type from the given statement and checks if can reach a conclusion from that
         score, matchType = selectSubType(subTypes, tokens)
         if score == 0:
-            print("Could you please repeat that? \n")
+            print("Could you please repeat that? Please make sure to say the written option not the number associated with it. \n")
             continue
         else:
             return matchType
 
-def questionResponse(query, subTypes):
+def diagnoseQuestionResponse(query, subTypes):
     tokens = nltk.word_tokenize(query.lower())
     plural = False
     if "these" in tokens or ("those" in tokens):
@@ -108,27 +119,34 @@ def questionResponse(query, subTypes):
     if "where" in tokens:
         if plural:
             for st in subTypes:
-                whereQuestions("where is the " + st[0].text)
+                whereQuestionsCaller("where is the " + st[0].text)
+                return 1
         else:
             matchType = selectSubType(subTypes, tokens)[1]
-            whereQuestions("where is the " + matchType[0].text)
+            whereQuestionsCaller("where is the " + matchType[0].text)
+            return 1
             
     elif "what" in tokens:
         if plural:
             for st in subTypes:
-                whatQuestions("what is a " + st[0].text)
+                whatQuestionsCaller("what is a " + st[0].text)
+            return 1
         else:
             matchType = selectSubType(subTypes, tokens)[1]
-            whatQuestions("what is a " + matchType[0].text)
+            whatQuestionsCaller("what is a " + matchType[0].text)
+            return 1
     else:
         return 0
         
 
-def whereQuestions(query):
-    print(query)
+def whereQuestionsCaller(query):
+    whereQuestions(query)
 
-def whatQuestions(query):
-    print(query)
+def whatQuestionsCaller(query):
+    whatQuestions(query)
+
+def howQuestions(query):
+    find_video(query)
 
 def isQuestion(query):
     questionWords = ["what", "where", "how"]
@@ -141,7 +159,41 @@ def isQuestion(query):
     
     return False
 
+def stepsQuestionResponse(query, step):
+    tokens = nltk.word_tokenize(query.lower())
+    if "that" in tokens or (len(tokens)<5):
+        vague = True
+    else: 
+        vague = False
+    
+    if "where" in tokens:
+        if vague:
+            taggedQ = pos_tag(query.split())
+            pNouns = [word for word,pos in taggedQ if pos == "NNP"]
+            qString = ' '.join(pNouns)
+            whatQuestionsCaller("where is the: " + qString)
+        else:
+            whatQuestionsCaller(qString)
+        return 1
+            
+    elif "what" in tokens:
+        if vague:
+            taggedQ = pos_tag(query.split())
+            pNouns = [word for word,pos in taggedQ if pos == "NNP"]
+            qString = ' '.join(pNouns)
+            whatQuestionsCaller("what is a: " + qString)
+        else:
+            whatQuestionsCaller(query)
+        return 1
 
+    elif "how" in tokens:
+        if vague:
+            howQuestions("how to: " + step)
+        else:
+            howQuestions(query)
+        return 1
+    else:
+        return 0
 
 
 #steps through the instructions
@@ -162,8 +214,10 @@ def stepThroughInstructions(emergencyType):
             continue
         elif response in ["repeat", "Repeat"]:
             continue
+        elif isQuestion(response):
+            stepsQuestionResponse(response, treatmentList[counter])
         else:
-            print("none of the cases")
+            print("I couldn't quite get that. Could you please repeat")
             continue
 
 #removes irrelevant words and returns a list of the token words
