@@ -15,7 +15,7 @@ def whatQuestions(query):
     results = whatQuestions_helper(
     query, my_api_key, my_cse_id, num=10)
     firstResult = results[0]
-    search = firstResult["formattedUrl"]
+    search = firstResult["link"]
     webbrowser.open(search, new=1)
 
 #Returns JSON for standard google image search. Helper for whereQuestions().
