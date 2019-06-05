@@ -17,9 +17,6 @@ def whatQuestions(query):
     firstResult = results[0]
     search = firstResult["link"]
     webbrowser.open(search, new=1)
-    search_term = input("Would you like to see an image?")
-    if search_term == "yes" or search_term == "yes " or search_term == "Yes" or search_term == "Yes ":
-        whereQuestions(query)
 
 #Returns JSON for standard google image search. Helper for whereQuestions().
 def whereQuestions_helper(search_term, api_key, cse_id, **kwargs):

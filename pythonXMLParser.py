@@ -127,13 +127,23 @@ def diagnoseQuestionResponse(query, subTypes):
             return 1
             
     elif "what" in tokens:
+        response = input("\n Would you also like to see images?")
+        if response == "yes":
+            pics = True
+        else:
+            pics = False
+
         if plural:
             for st in subTypes:
                 whatQuestionsCaller("what is a " + st[0].text)
+                if pics:
+                    whereQuestionsCaller("what is a" + st[0].text)
             return 1
         else:
             matchType = selectSubType(subTypes, tokens)[1]
             whatQuestionsCaller("what is a " + matchType[0].text)
+            if pics:
+                whereQuestionsCaller("what is a" + st[0].text)
             return 1
     else:
         return 0
@@ -171,9 +181,9 @@ def stepsQuestionResponse(query, step):
             taggedQ = pos_tag(query.split())
             pNouns = [word for word,pos in taggedQ if pos == "NNP"]
             qString = ' '.join(pNouns)
-            whatQuestionsCaller("where is the: " + qString)
+            whereQuestionsCaller("where is the: " + qString)
         else:
-            whatQuestionsCaller(qString)
+            whereQuestionsCaller(qString)
         return 1
             
     elif "what" in tokens:
@@ -182,15 +192,27 @@ def stepsQuestionResponse(query, step):
             pNouns = [word for word,pos in taggedQ if pos == "NNP"]
             qString = ' '.join(pNouns)
             whatQuestionsCaller("what is a: " + qString)
+            response = input("\n Would you also like an image?")
+            if response == "yes":
+                whereQuestionsCaller("what is a" + qString)   
         else:
             whatQuestionsCaller(query)
+            response = input("\n Would you also like an image?")
+            if response == "yes":
+                whereQuestionsCaller("what is a" + qString) 
         return 1
 
     elif "how" in tokens:
         if vague:
-            howQuestions("how to: " + step)
+            whatQuestionsCaller("how to: " + step)
+            response = input("\n Do you also want a video?")
+            if response == "yes":
+                howQuestions(query)
         else:
-            howQuestions(query)
+            whatQuestionsCaller("how to: " + step)
+            response = input("\n Do you also want a video?")
+            if response == "yes":
+                howQuestions(query)
         return 1
     else:
         return 0

@@ -131,7 +131,7 @@
 			<Name>Forearm and wrist fracture</Name>
 			<Descriptors>["forearm", "lower arm", "wrist", "hand"]</Descriptors>
 			<Symptoms> Some symptoms </Symptoms>
-			<Treatment>["fold the formable splint in half, upon itself creating a double layered splint, leaving one side approximately 1 inch longer than the other", "take the folded end of the formable splint and roll at least two times toward the side with the shorest end. This will provide a natural curvature for the hand when the splint is applied", "shape the formable splint into a C curve along the long axis form the rolled end to the opposite end", "shape the splint until the splint generally conforms to the curve and shape of the limb being splinted", "pad the splint and fill in the voids as needed", "place the fractured forearm in in the splint with the hand in the natural curve on top of the rolled end of the splint", "tie one cravat above (proximal) and one cravat below (distal) the fracture site", "tie the tails of the cravats in a nonslip knot on the outside of the splint", "recheck the casualty's pulse (at the wrist" and capillary refill. Loosen the cravats and reapply the splint if needed", "cut the tails of each cravat to prevent accidental entaglement when the casualty is moved"]
+			<Treatment>["fold the formable splint in half, upon itself creating a double layered splint, leaving one side approximately 1 inch longer than the other", "take the folded end of the formable splint and roll at least two times toward the side with the shorest end. This will provide a natural curvature for the hand when the splint is applied", "shape the formable splint into a C curve along the long axis form the rolled end to the opposite end", "shape the splint until the splint generally conforms to the curve and shape of the limb being splinted", "pad the splint and fill in the voids as needed", "place the fractured forearm in in the splint with the hand in the natural curve on top of the rolled end of the splint", "tie one cravat above (proximal) and one cravat below (distal) the fracture site", "tie the tails of the cravats in a nonslip knot on the outside of the splint", "recheck the casualty's pulse (at the wrist" and capillary refill. Loosen the cravats and reapply the splint if needed", "cut the tails of each cravat to prevent accidental entaglement when the casualty is moved"]</Treatment>
 		</Type>
 		<Type>
 			<Name>Elbow injury</Name>
@@ -140,11 +140,34 @@
 			<Treatment>["The injured extremity should be placed in a V (bent) position with the forearm across the front of the chest between the neck and the abdomen (anterior thorax)", "take one splint and fold in half, fold the splint in half again but along the long axis of the splint. Pad the formable splint if needed"]</Treatment>
 		</Type>
 		<Type>
-			<Name>Humerus<Name/>
-			<Descriptos>["long bone", "arm", "arm bone", "humerus"]</Descriptors>
+			<Name>Humerus</Name>
+			<Descriptors>["long bone", "arm", "arm bone", "humerus"]</Descriptors>
 			<Symptoms>Some symptoms</Symptoms>
 			<Treatment>["fold one third of the 36 inch formable splint upon itself to create a 12 inch section of double-layered splint", "bend the double layered portion of the splint in a J and tape both layers together", "support the casualty's arm in an L shape", "hook the elbow with the J portion of the splint, running the rest of the splint along the upper arm towards the shoulder (on the outside of the arm)", "fold any excess splint that may be extending above the top of the shoulder, back upon itself (boule layer)", "secure the splint with an elastic bandage below and above and then secure the elastic bandage with tape", "apply a sling and swathe to further immobolize the fracture arm"]</Treatment>
 		</Type>
+	</Type>
+	<Type>
+		<Name>Airway Obstructions</Name>
+		<Descriptors>["airway", "blocked", "block", "breath", "air", "throat", "choke", "choking"]</Descriptors>
+		<Question> Only peform compressions/thrusts if choking is severe. If you are pregnant or have an abdominal wound, say chest compressions for directions. If not, say abdominal thrusts.  </Question>
+		<Type>
+			<Name>Abdominal thrusts</Name>
+			<Descriptors>["abdominal", "thrusts", "abdominal thrusts"]</Descriptors>
+			<Symptoms> 
+				Regular airway obstruction steps.
+			</Symptoms>
+			<Treatment>["Stand behind the patient", "Wrap your arms around the patient's waist", "Make a fist with one hand", "Place the thumb side of the fist against the abdominal slightly above the naval and well below the tip of the breastbone", "Grasp the fist with the other hand", "Give kick backward and upward thrusts"]</Treatment>
+		</Type>
+
+		<Type>
+			<Name>Chest Compressions</Name>
+			<Descriptors>["chest", "compressions", "chest compressions"]</Descriptors>
+			<Symptoms> 
+				Airway obstruction steps for when you are pregnant or have an abdominal wound.
+			</Symptoms>
+			<Treatment>["Stand behind the patient", "Wrap your arms under the patient's armpits and around the chest", "Make a fist with one hand", "Give backwards thrusts"]</Treatment>
+		</Type>
+
 	</Type>
 </All_Emergencies>
 		
