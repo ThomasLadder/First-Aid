@@ -123,5 +123,28 @@
 			<Treatment>["If possible, wear appropriate laser eye protection", "Move the patient away from the source while avoiding eye contact with the beam source", "Uncover the burn by cutting clothing from the burned area, gently lifting away the clothing covering the burned area, and removing any jewelry on the burned area", "Apply dry, sterile dressing or cloth (white-side down) directly over the wound. The dressing should be applied lightly over the burn, but firmly enough to prevent it from slipping", "Watch the patient for signs of life-threatening conditions, check for other injuries, and treat for shock", "Get medical assistance"]</Treatment>
 		</Type>
 	</Type>
+	<Type>
+		<Name>Fractures</Name>
+		<Descriptors>["deformed", "hurting", "bone", "broken", "fracture", "fractured", "can't function", "bone protruding", "sticking out", "fractures", "tender", "swelling", "pain", "discolored skin", "bruise"]</Descriptors>
+		<Question>What got fractured?</Question>
+		<Type>
+			<Name>Forearm and wrist fracture</Name>
+			<Descriptors>["forearm", "lower arm", "wrist", "hand"]</Descriptors>
+			<Symptoms> Some symptoms </Symptoms>
+			<Treatment>["fold the formable splint in half, upon itself creating a double layered splint, leaving one side approximately 1 inch longer than the other", "take the folded end of the formable splint and roll at least two times toward the side with the shorest end. This will provide a natural curvature for the hand when the splint is applied", "shape the formable splint into a C curve along the long axis form the rolled end to the opposite end", "shape the splint until the splint generally conforms to the curve and shape of the limb being splinted", "pad the splint and fill in the voids as needed", "place the fractured forearm in in the splint with the hand in the natural curve on top of the rolled end of the splint", "tie one cravat above (proximal) and one cravat below (distal) the fracture site", "tie the tails of the cravats in a nonslip knot on the outside of the splint", "recheck the casualty's pulse (at the wrist" and capillary refill. Loosen the cravats and reapply the splint if needed", "cut the tails of each cravat to prevent accidental entaglement when the casualty is moved"]
+		</Type>
+		<Type>
+			<Name>Elbow injury</Name>
+			<Descriptors>["elbow", "elbow ", " elbow"]</Descriptors>
+			<Symptoms>Some symptoms</Symptoms>
+			<Treatment>["The injured extremity should be placed in a V (bent) position with the forearm across the front of the chest between the neck and the abdomen (anterior thorax)", "take one splint and fold in half, fold the splint in half again but along the long axis of the splint. Pad the formable splint if needed"]</Treatment>
+		</Type>
+		<Type>
+			<Name>Humerus<Name/>
+			<Descriptos>["long bone", "arm", "arm bone", "humerus"]</Descriptors>
+			<Symptoms>Some symptoms</Symptoms>
+			<Treatment>["fold one third of the 36 inch formable splint upon itself to create a 12 inch section of double-layered splint", "bend the double layered portion of the splint in a J and tape both layers together", "support the casualty's arm in an L shape", "hook the elbow with the J portion of the splint, running the rest of the splint along the upper arm towards the shoulder (on the outside of the arm)", "fold any excess splint that may be extending above the top of the shoulder, back upon itself (boule layer)", "secure the splint with an elastic bandage below and above and then secure the elastic bandage with tape", "apply a sling and swathe to further immobolize the fracture arm"]</Treatment>
+		</Type>
+	</Type>
 </All_Emergencies>
 		
