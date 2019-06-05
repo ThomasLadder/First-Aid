@@ -148,7 +148,7 @@
 	</Type>
 	<Type>
 		<Name>Airway Obstructions</Name>
-		<Descriptors>["airway", "blocked", "block", "breath", "air", "throat", "choke", "choking"]</Descriptors>
+		<Descriptors>["airway", "blocked", "block", "breathe", "air", "throat", "choke", "choking"]</Descriptors>
 		<Question> Only peform compressions/thrusts if choking is severe. If you are pregnant or have an abdominal wound, say chest compressions for directions. If not, say abdominal thrusts.  </Question>
 		<Type>
 			<Name>Abdominal thrusts</Name>

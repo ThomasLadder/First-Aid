@@ -120,7 +120,8 @@ def diagnoseQuestionResponse(query, subTypes):
         if plural:
             for st in subTypes:
                 whereQuestionsCaller("where is the " + st[0].text)
-                return 1
+
+            return 1    
         else:
             matchType = selectSubType(subTypes, tokens)[1]
             whereQuestionsCaller("where is the " + matchType[0].text)
@@ -228,13 +229,14 @@ def stepThroughInstructions(emergencyType):
         print(treatmentList[counter])
         # engine.say(treatmentList[counter])
         # engine.runAndWait()
+        # print("speak now")
         # response = voice()
         #print(response)
         response = input("\n\nResponse?\n\n")
-        if response in ["next step", "Next Step", "next Step", "Next step"]:
+        if response in ["next step", "Next Step", "next Step", "Next step", "next", "Next"]:
             counter += 1
             continue
-        elif response in ["repeat", "Repeat"]:
+        elif response in ["repeat", "Repeat", "repeat that"]:
             continue
         elif isQuestion(response):
             stepsQuestionResponse(response, treatmentList[counter])
